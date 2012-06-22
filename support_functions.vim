@@ -63,6 +63,19 @@ function! Snippet_JavaClassNameFromFilename(...)
     return name
 endfunction
 
+" autocmd BufNewFile *.java call InsertJavaPackage()
+function! Snippet_InsertJavaPackage()
+  let filename = expand("%")
+  let filename = substitute(filename, "\.java$", "", "")
+  let dir = getcwd() . "/" . filename
+  let dir = substitute(dir, "^.*\/src\/main\/groovy\/", "", "")
+  let dir = substitute(dir, "\/[^\/]*$", "", "")
+  let dir = substitute(dir, "\/", ".", "g")
+  let filename = substitute(filename, "^.*\/", "", "")
+  let dir = dir . ";"
+  return dir
+endfunction
+
 function! Snippet_JavaInstanceVarType(name)
     let oldview = winsaveview()
     if searchdecl(a:name) == 0
