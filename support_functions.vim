@@ -50,6 +50,20 @@ function! Snippet_PHPClassNameFromFilename(...)
     return name
 endfunction
 
+"clojure {{{1
+function! Snippet_InsertClojureNs()
+  let filename = expand("%")
+  let filename = substitute(filename, "\.clj$", "", "")
+  let dir = getcwd() . "/" . filename
+  " let dir = substitute(dir, "^.*\/\\(src\\|test\\)\/", "", "")
+  let dir = substitute(dir, ".\\{-}\\(test\\|src\\)\/", "", "")
+  let dir = substitute(dir, "\/[^\/]*$", "", "")
+  let dir = substitute(dir, "\/", ".", "g")
+  let filename = substitute(filename, "^.*\/", "", "")
+  return dir
+endfunction
+
+
 "java {{{1
 function! Snippet_JavaClassNameFromFilename(...)
     let name = expand("%:t:r")
@@ -63,7 +77,6 @@ function! Snippet_JavaClassNameFromFilename(...)
     return name
 endfunction
 
-" autocmd BufNewFile *.java call InsertJavaPackage()
 function! Snippet_InsertJavaPackage()
   let filename = expand("%")
   let filename = substitute(filename, "\.java$", "", "")
