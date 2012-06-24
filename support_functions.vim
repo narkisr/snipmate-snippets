@@ -55,9 +55,7 @@ function! Snippet_InsertClojureNs()
   let filename = expand("%")
   let filename = substitute(filename, "\.clj$", "", "")
   let dir = getcwd() . "/" . filename
-  " let dir = substitute(dir, "^.*\/\\(src\\|test\\)\/", "", "")
   let dir = substitute(dir, ".\\{-}\\(test\\|src\\)\/", "", "")
-  let dir = substitute(dir, "\/[^\/]*$", "", "")
   let dir = substitute(dir, "\/", ".", "g")
   let filename = substitute(filename, "^.*\/", "", "")
   return dir
