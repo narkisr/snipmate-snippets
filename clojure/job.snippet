@@ -22,7 +22,7 @@
 (defn tool-run
   "This creates a main function that can be invoked in emr "
   [^Tool this args]
-  (let [[{:keys [input output size]} args banner] (c/args-parse args ["-s" "--size" "gram size"]) ]
+  (let [[{:keys [input output]} args banner] (c/args-parse args) ]
     (doto (Job.)
       (.setJarByClass (.getClass this))
       (conf :name "")
