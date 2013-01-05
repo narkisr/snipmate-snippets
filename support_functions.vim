@@ -79,7 +79,7 @@ function! Snippet_InsertJavaPackage()
   let filename = expand("%")
   let filename = substitute(filename, "\.java$", "", "")
   let dir = getcwd() . "/" . filename
-  let dir = substitute(dir, "^.*\/src\/main\/groovy\/", "", "")
+  let dir = substitute(dir, "^.*\/src\/\\(main\\|test\\)\/groovy\/", "", "")
   let dir = substitute(dir, "\/[^\/]*$", "", "")
   let dir = substitute(dir, "\/", ".", "g")
   let filename = substitute(filename, "^.*\/", "", "")

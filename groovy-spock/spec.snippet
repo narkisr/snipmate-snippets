@@ -1,3 +1,12 @@
-def '${1}'() {
-	${2}
+package ${1:`Snippet_InsertJavaPackage()`}
+
+import spock.lang.*
+import grails.plugin.spock.*
+
+class ${1:`Snippet_JavaClassNameFromFilename()`} extends Specification {
+
+      def '${2}'() {
+	${3}
+      }
 }
+
