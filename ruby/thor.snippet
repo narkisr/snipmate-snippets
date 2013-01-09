@@ -1,0 +1,14 @@
+#!/usr/bin/env ruby 
+
+$:.push 'lib'
+require 'rubygems'
+require 'thor'
+
+class ${1:`Snippet_RubyClassNameFromFilename()`} < Thor
+  desc '${2}','${3}'
+  def ${4}
+     ${5}
+  end
+end
+
+${6:`Snippet_RubyClassNameFromFilename()`}.start(ARGV)
